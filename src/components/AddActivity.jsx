@@ -8,18 +8,22 @@ const [data, setData] = useState({
   duration: "",
 });
 
-const handelChange = (e) => {
+// const handelChange = (e) => {
+//   e.persist();
+//   setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+// };
+const handleChange = (e) => {
   e.persist();
   setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 };
 const addActivity = () => {
-    dispatch({
-        type: "CREATE_ACTIVITY",
-        payload: {
-          name: data.name,
-          duration: data.duration,
-        },
-      });
+  dispatch({
+    type: "CREATE_ACTIVITY",
+    payload: {
+      name: data.name,
+      duration: data.duration,
+    },
+  });
 }
   return (
     <div className="add">
@@ -29,7 +33,9 @@ const addActivity = () => {
           className="input"
           name="name"
           placeholder="Activity name ..."
-          onChange={(e)=>handelChange(e)} ></input>
+          // onChange={(e)=>handelChange(e)} 
+          onChange={(e) => handleChange(e)}
+          />
       </div>
       <div className="input-section">
         <p>activity Duration :</p>
@@ -37,9 +43,12 @@ const addActivity = () => {
           className="input"
           name="name"
           placeholder="Activity duration ..."
-          onChange={(e)=>handelChange(e)}></input>
+          // onChange={(e)=>handelChange(e)}
+          onChange={(e) => handleChange(e)}
+          />
       </div>
-      <button style={{margin:"15px"}} onClick={addActivity}> Add Activity</button>
+      {/* <button style={{margin:"15px"}} onClick={addActivity}> Add Activity</button> */}
+      <button className="button-55" role="button" style={{margin:"15px"}} onClick={addActivity}>Add Activity</button>
     </div>
   );
 };

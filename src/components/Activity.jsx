@@ -15,7 +15,8 @@ const Activity = ({id, name, duration}) => {
     <div className="section">
       <p>
         <b> Activity : </b> {name} <b> Duration :</b>{duration}
-        <button onClick={deleteActivity}>Delete</button>
+        {/* <button onClick={deleteActivity}>Delete</button> */}
+        <button className="button-55" role="button" style={{margin:"15px"}} onClick={deleteActivity}>Delete</button>
       </p>
     </div>
   );
